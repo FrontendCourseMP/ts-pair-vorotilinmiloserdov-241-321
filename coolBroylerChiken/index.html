@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$>@<0 A Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0"> 538AB@0F8>==0O D>@<0</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="userForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">$</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="2548B5 20H5 ?>;=>5 8<O" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="example@mail.com" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">"5;5D>=</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="+7 (999) 999-99-99" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="birthDate" class="form-label">0B0 @>645=8O</label>
+                                <input type="date" class="form-control" id="birthDate" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="city" class="form-label">>@>4</label>
+                                <select class="form-select" id="city" required>
+                                    <option value="">K15@8B5 3>@>4</option>
+                                    <option value=">A:20">>A:20</option>
+                                    <option value="!0=:B-5B5@1C@3">!0=:B-5B5@1C@3</option>
+                                    <option value=">2>A818@A:">>2>A818@A:</option>
+                                    <option value=":0B5@8=1C@3">:0B5@8=1C@3</option>
+                                    <option value="070=L">070=L</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">>;</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="male" value="C6A:>9" required>
+                                        <label class="form-check-label" for="male">C6A:>9</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="female" value="5=A:89">
+                                        <label class="form-check-label" for="female">5=A:89</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agree" required>
+                                    <label class="form-check-label" for="agree">
+                                        !>3;0A5= A CA;>28O<8 >1@01>B:8 ?5@A>=0;L=KE 40==KE
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">B?@028BL</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card shadow mt-4" id="outputCard" style="display: none;">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"> 57C;LB0B</h4>
+                    </div>
+                    <div class="card-body">
+                        <output id="formOutput" class="d-block"></output>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const birthDate = document.getElementById('birthDate').value;
+            const city = document.getElementById('city').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+
+            const output = `
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <strong>$:</strong> ${fullName}
+                    </div>
+                    <div class="list-group-item">
+                        <strong>Email:</strong> ${email}
+                    </div>
+                    <div class="list-group-item">
+                        <strong>"5;5D>=:</strong> ${phone}
+                    </div>
+                    <div class="list-group-item">
+                        <strong>0B0 @>645=8O:</strong> ${birthDate}
+                    </div>
+                    <div class="list-group-item">
+                        <strong>>@>4:</strong> ${city}
+                    </div>
+                    <div class="list-group-item">
+                        <strong>>;:</strong> ${gender}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('formOutput').innerHTML = output;
+            document.getElementById('outputCard').style.display = 'block';
+
+            document.getElementById('outputCard').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
