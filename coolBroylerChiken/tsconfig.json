@@ -9,8 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "ESNext",
     "target": "ESNext",
-    "lib": ["ESNext"],
-    "types": ["node"],
+    "lib": ["ESNext", "DOM"],
     "moduleResolution": "bundler",
 
     // Other Outputs
