@@ -1,5 +1,4 @@
 .DS_Store
-coolBroylerChiken/
 node_modules/
 dist/
 *.d.ts
