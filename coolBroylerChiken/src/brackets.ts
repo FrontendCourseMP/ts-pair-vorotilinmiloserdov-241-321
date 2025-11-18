@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("[data-bracketsForm]") as HTMLFormElement;
+  const result = document.querySelector("[data-result]") as HTMLOutputElement;
+  const input = document.querySelector(
+    "[data-bracketsInput]"
+  ) as HTMLInputElement;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const isValid = validator.isValidBrackets(input.value);
+
+    result.value = isValid
+      ?`Строка "${input.value}" - ВАЛИДНА`
+      :`Строка "${input.value}" - НЕВАЛИДНА`;
+
+    result.className = isValid ? "valid" : "invalid";
+  });
+});
+
 class BracketsValidator {
   private areBracketsMatching(openBr: string, closeBr: string): boolean {
     if (openBr === "{" && closeBr === "}") return true;
@@ -24,35 +44,4 @@ class BracketsValidator {
     return stack.length === 0;
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('[data-bracketsForm]') as HTMLFormElement;
-  const input = document.getElementById('bracketsInput') as HTMLInputElement;
-  const resultDiv = document.querySelector('[data-result]') as HTMLDivElement;
-
-  if (form && input && resultDiv) {
-    const validator = new BracketsValidator();
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const inputValue = input.value.trim();
-
-      if (!inputValue) {
-        resultDiv.textContent = "Введите строку со скобками";
-        resultDiv.style.color = "red";
-        return;
-      }
-
-      const isValid = validator.isValidBrackets(inputValue);
-
-      if (isValid) {
-        resultDiv.textContent = "Скобки расставлены верно";
-        resultDiv.style.color = "green";
-      } else {
-        resultDiv.textContent = "Скобки расставлены неверно";
-        resultDiv.style.color = "red";
-      }
-    });
-  }
-});
+const validator = new BracketsValidator();
