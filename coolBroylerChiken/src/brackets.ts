@@ -24,3 +24,35 @@ class BracketsValidator {
     return stack.length === 0;
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('[data-bracketsForm]') as HTMLFormElement;
+  const input = document.getElementById('bracketsInput') as HTMLInputElement;
+  const resultDiv = document.querySelector('[data-result]') as HTMLDivElement;
+
+  if (form && input && resultDiv) {
+    const validator = new BracketsValidator();
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const inputValue = input.value.trim();
+
+      if (!inputValue) {
+        resultDiv.textContent = "Введите строку со скобками";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      const isValid = validator.isValidBrackets(inputValue);
+
+      if (isValid) {
+        resultDiv.textContent = "Скобки расставлены верно";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "Скобки расставлены неверно";
+        resultDiv.style.color = "red";
+      }
+    });
+  }
+});

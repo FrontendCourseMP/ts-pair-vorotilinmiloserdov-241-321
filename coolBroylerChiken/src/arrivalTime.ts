@@ -1,7 +1,4 @@
-
-
 function calculateArrivalTime(scheduledHour: number, delayHours: number): string {
-    
     if (!Number.isInteger(scheduledHour) || !Number.isInteger(delayHours)) {
         return "Ошибка: введите целые числа";
     }
@@ -14,10 +11,7 @@ function calculateArrivalTime(scheduledHour: number, delayHours: number): string
         return "Ошибка: опоздание не может быть отрицательным";
     }
 
-    
     const newHour = (scheduledHour + delayHours) % 24;
-
-    
     const formattedHour = newHour.toString().padStart(2, '0');
 
     return `${formattedHour}:00`;
@@ -34,18 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
-            
-            const timeValue = arrivalTimeInput.value; 
+            const timeValue = arrivalTimeInput.value;
             const delayHours = parseInt(lateInput.value);
 
-            
             if (!timeValue || isNaN(delayHours)) {
                 resultDiv.textContent = "Заполните все поля";
                 resultDiv.style.color = "red";
                 return;
             }
 
-            
             const hourString = timeValue.split(':')[0];
             if (!hourString) {
                 resultDiv.textContent = "Ошибка: неверный формат времени";
@@ -54,10 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const scheduledHour = parseInt(hourString);
 
-            
             const result = calculateArrivalTime(scheduledHour, delayHours);
 
-            
             if (result.startsWith("Ошибка")) {
                 resultDiv.style.color = "red";
                 resultDiv.textContent = result;
